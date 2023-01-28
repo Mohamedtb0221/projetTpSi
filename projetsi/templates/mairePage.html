@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <title>Maire Page</title>
+
+</head>
+
+<body>
+    <br><br>
+    <div class="border border-dark mx-auto w-50 p-5 pb-5 rounded bg-light">
+
+        <center style="font-size: 30px;">Gestion des officiers</center>
+
+        <table class="table table-bordered mt-5">
+            <tr>
+                <th>matricule</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>date prise de servise</th>
+                <th>action</th>
+            </tr>
+            {% for offic in total %}
+            <tr>
+                <td>{{ offic.matricule }}</td>
+                <td>{{ offic.nom }}</td>
+                <td>{{ offic.prenom }}</td>
+                <td>{{ offic.datePriseService }}</td>
+                <td><a href="/SupprimerOff/{{ offic.id }}" class="btn btn-secondary btn-xs" style="font-weight: bold;" data-title="Edit"
+                        data-toggle="modal" data-target="#edit">supprimer</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+    
+    </table>
+    <a href="{% url 'ADD_off' %}" class="btn btn-secondary btn-xs" style="width: 120px;height: 40px;font-weight: bold" data-title="Edit"
+                        data-toggle="modal" data-target="#edit">ajouter</a>
+</div>
+
+    
+    
+    
+</body>
+
+</html>
